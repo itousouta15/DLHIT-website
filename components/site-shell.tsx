@@ -115,7 +115,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 預留
               </p>
               <div className="text-xs uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
-                dlec9th.twcat0503.org
+                class.com
               </div>
             </div>
           </div>
