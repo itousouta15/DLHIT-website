@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+   --background: #f3e8ff;
+  --foreground: #2a0d3a;
 }
 
 @theme inline {
@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1b0636;
+    --foreground: #efe6ff;
   }
 }
 
@@ -32,8 +32,8 @@ a {
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.15);
-  color: #0f172a;
+  background: rgba(99, 102, 241, 0.18);
+  color: #ffffff;
 }
 
 @keyframes float {
@@ -46,4 +46,26 @@ a {
   100% {
     transform: translateY(0px);
   }
+}
+
+/* Override Tailwind color variables to purple theme */
+:root, :host {
+  --color-sky-100: #f3e8ff;
+  --color-sky-200: #e9d5ff;
+  --color-sky-300: #d8b4fe;
+  --color-sky-500: #7d6c9c;
+  --color-sky-600: #6e5992;
+  --color-sky-700: #493963;
+  --color-sky-900: #2a2138;
+  --color-slate-50: #fbf7ff;
+  --color-slate-100: #f6effa;
+  --color-slate-200: #e9dbf6;
+  --color-slate-300: #d6c1f0;
+  --color-slate-400: #b69be6;
+  --color-slate-500: #9d90bb;
+  --color-slate-600: #6f4bb0;
+  --color-slate-700: #3d2e55;
+  --color-slate-800: #78638d;
+  --color-slate-900: #211d27;
+  --color-slate-950: #221e22;
 }

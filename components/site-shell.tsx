@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
@@ -7,15 +8,15 @@ import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   { label: "首頁", href: "/" },
-  { label: "關於本班", href: "/about" },
-  { label: "成果", href: "/showcase" },
+  { label: "關於", href: "/about" },
   { label: "成員", href: "/members" },
-  { label: "聯絡方式", href: "/contact" },
+  { label: "聯絡", href: "/contact" },
 ];
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [isReady, setIsReady] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsReady(true), 900);
@@ -37,16 +38,26 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-white text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
       <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 sm:px-8 lg:px-12">
-        <header className="sticky top-0 z-40 mb-10 -mx-4 flex flex-wrap items-center gap-3 border-b border-white/40 bg-white/85 px-4 py-3 backdrop-blur-xl shadow-sm dark:border-slate-800 dark:bg-slate-900/80 sm:mx-0 sm:flex-nowrap sm:justify-between sm:rounded-b-xl">
+        <header className="sticky top-0 z-40 mb-8 sm:mb-10 -mx-4 flex flex-wrap items-center gap-2 sm:gap-3 border-b border-white/40 bg-white/85 px-3 sm:px-4 py-2 sm:py-3 backdrop-blur-xl shadow-sm dark:border-slate-800 dark:bg-slate-900/80 sm:mx-0 sm:flex-nowrap sm:justify-between sm:rounded-b-xl">
           <div className="flex flex-1 flex-wrap items-center gap-4 sm:flex-nowrap">
-            <Link href="/" className="group flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.08em]">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-dashed border-slate-400 bg-white/80 text-[10px] leading-none text-slate-700 shadow-sm transition group-hover:-translate-y-0.5 group-hover:border-slate-600 dark:border-slate-600 dark:bg-slate-800/80 dark:text-slate-100">
-                Logo
+            <Link href="/" className="group flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.08em]">
+              <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="/DLHIT1.webp"
+                  alt="DLHIT Logo"
+                  width={36}
+                  height={36}
+                  unoptimized
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <span className="text-base font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
-                DLEC 9th
+              <span className="text-sm sm:text-base font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
+                DLHIT 2th
               </span>
             </Link>
+          
+          </div>
+          <div className="flex w-full items-center justify-end gap-2 sm:gap-3 md:w-auto md:justify-end">
             <nav className="hidden items-center gap-1 text-sm font-medium md:flex">
               {navWithState.map((item) => (
                 <Link
@@ -58,22 +69,34 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 </Link>
               ))}
             </nav>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/70 dark:hover:bg-slate-800/80 transition"
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all ${isMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
           </div>
-          <div className="flex w-full items-center justify-between gap-3 md:w-auto md:justify-end">
-            <nav className="flex max-w-full items-center gap-2 overflow-x-auto whitespace-nowrap text-xs font-semibold md:hidden">
+        </header>
+
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-white/95 dark:bg-slate-900/95 border-b border-white/40 dark:border-slate-800 shadow-lg backdrop-blur-xl z-30">
+            <nav className="flex flex-col p-4 gap-2">
               {navWithState.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-3 py-2 transition ${item.active ? "bg-slate-900 text-white shadow-md dark:bg-white dark:text-slate-900" : "bg-white/60 text-slate-700 dark:bg-slate-800/70 dark:text-slate-200"}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`rounded-lg px-4 py-3 transition text-sm font-medium ${item.active ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900" : "text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800/80"}`}
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
-            <ThemeToggle />
           </div>
-        </header>
+        )}
 
         {!isReady && (
           <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950 text-slate-100">
@@ -92,13 +115,16 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <div className="grid gap-6 md:grid-cols-3">
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50">
-                預留
+                網站導覽
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300">
-                預留
+                首頁
               </p>
-              <p className="text-xs uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
-                預留
+              <p className="text-xs uppercase tracking-[0.14em] text-slate-400 dark:text-slate-300">
+                關於
+              </p>
+              <p className="text-xs uppercase tracking-[0.14em] text-slate-400 dark:text-slate-300">
+                成員
               </p>
             </div>
             <div className="space-y-3">
@@ -115,7 +141,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 預留
               </p>
               <div className="text-xs uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
-                class.com
+                dlhit.scaict.org
               </div>
             </div>
           </div>

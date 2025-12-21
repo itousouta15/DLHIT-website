@@ -21,7 +21,7 @@ export default function AboutPage() {
           About
         </p>
         <h1 className="mt-3 text-4xl font-bold text-slate-900 dark:text-white">
-          關於本班
+          關於我們
         </h1>
         <p className="mt-3 max-w-3xl text-lg text-slate-600 dark:text-slate-300">
           預留
