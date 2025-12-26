@@ -1,8 +1,5 @@
-const members = Array.from({ length: 8 }).map((_, idx) => ({
-  name: `預留 ${idx + 1}`,
-  role: "預留",
-  blurb: "預留",
-}));
+import Image from "next/image";
+import members from "@/data/members.json";
 
 export default function MembersPage() {
   return (
@@ -21,26 +18,100 @@ export default function MembersPage() {
         {members.map((member) => (
           <div
             key={member.name}
-            className="flex flex-col rounded-2xl border border-white/30 bg-white/80 p-5 shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/70"
+            className="group flex flex-col overflow-hidden rounded-3xl border border-white/30 bg-gradient-to-br from-white/90 to-white/70 shadow-md backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:border-slate-700 dark:from-slate-900/80 dark:to-slate-900/60"
           >
-            <div className="flex items-center gap-3">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-slate-300 bg-white/80 text-xs uppercase tracking-[0.08em] text-slate-500 shadow-sm dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                照片
-              </div>
+            {/* Image Header */}
+            <div className="relative h-40 overflow-hidden bg-gradient-to-br from-sky-200 to-blue-200 dark:from-sky-900/40 dark:to-blue-900/40">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col gap-3 px-6 py-5">
               <div>
-                <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
                   {member.name}
                 </h2>
-                <p className="text-sm text-slate-500 dark:text-slate-300">{member.role}</p>
+                <p className="text-sm font-medium text-sky-600 dark:text-sky-300">
+                  {member.role}
+                </p>
               </div>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              {member.blurb}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-300">
-              <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">技能</span>
-              <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">作品</span>
-              <span className="rounded-full bg-slate-100 px-3 py-1 dark:bg-slate-800">連結</span>
+
+              <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300 line-clamp-2">
+                {member.blurb}
+              </p>
+
+              {/* Skills */}
+              {member.skills && member.skills.length > 0 && (
+                <div className="space-y-2">
+                  <p className="text-xs uppercase font-semibold text-slate-500 dark:text-slate-400 tracking-[0.08em]">
+                    技能
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {member.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full bg-gradient-to-r from-slate-100 to-slate-50 px-3 py-1 text-xs font-medium text-slate-700 dark:from-slate-800 dark:to-slate-700 dark:text-slate-200"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Works */}
+              {member.works && member.works.length > 0 && (
+                <div className="space-y-2">
+                  <p className="text-xs uppercase font-semibold text-blue-600 dark:text-blue-400 tracking-[0.08em]">
+                    作品
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {member.works.map((work) => (
+                      <span
+                        key={work}
+                        className="rounded-full bg-gradient-to-r from-blue-100 to-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:from-blue-900/40 dark:to-blue-800/30 dark:text-blue-200"
+                      >
+                        {work}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Links */}
+              {member.links && member.links.length > 0 && (
+                <div className="space-y-2">
+                  <p className="text-xs uppercase font-semibold text-green-600 dark:text-green-400 tracking-[0.08em]">
+                    連結
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {member.links.map((link) => {
+                      // Handle both string and object formats
+                      const text = typeof link === 'string' ? link : link.text;
+                      const url = typeof link === 'string' ? '#' : link.url;
+                      
+                      return (
+                        <a
+                          key={text}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-full bg-gradient-to-r from-green-100 to-green-50 px-3 py-1 text-xs font-medium text-green-700 transition hover:from-green-200 hover:to-green-100 dark:from-green-900/40 dark:to-green-800/30 dark:text-green-200 dark:hover:from-green-900/60 dark:hover:to-green-800/50"
+                        >
+                          {text}
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         ))}

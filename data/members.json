@@ -1,0 +1,78 @@
+[
+  {
+    "name": "郭家睿 / 伊藤蒼太",
+    "role": "隊長 / 教學",
+    "blurb": "一個很懶的人",
+    "image": "https://avatars.githubusercontent.com/u/193865350?v=4",
+    "skills": ["資安", "競程", "前端"],
+    "works": ["DLOJ", "DLHIT官網"],
+    "links": [
+      { "text": "GitHub", "url": "https://github.com/itousouta15" },
+      { "text": "Web", "url": "https://itousouta15.tw" },
+      { "text": "IG", "url": "https://www.instagram.com/itou.souta15/" }
+    ]
+  },
+  {
+    "name": "成員名稱 2",
+    "role": "職位 / 角色",
+    "blurb": "簡短介紹或成就描述",
+    "image": "/placeholder.png",
+    "skills": ["技能1", "技能2", "技能3"],
+    "works": ["作品1", "作品2"],
+    "links": ["連結1", "連結2"]
+  },
+  {
+    "name": "成員名稱 3",
+    "role": "職位 / 角色",
+    "blurb": "簡短介紹或成就描述",
+    "image": "/placeholder.png",
+    "skills": ["技能1", "技能2", "技能3"],
+    "works": ["作品1", "作品2"],
+    "links": ["連結1", "連結2"]
+  },
+  {
+    "name": "成員名稱 4",
+    "role": "職位 / 角色",
+    "blurb": "簡短介紹或成就描述",
+    "image": "/placeholder.png",
+    "skills": ["技能1", "技能2", "技能3"],
+    "works": ["作品1", "作品2"],
+    "links": ["連結1", "連結2"]
+  },
+  {
+    "name": "成員名稱 5",
+    "role": "職位 / 角色",
+    "blurb": "簡短介紹或成就描述",
+    "image": "/placeholder.png",
+    "skills": ["技能1", "技能2", "技能3"],
+    "works": ["作品1", "作品2"],
+    "links": ["連結1", "連結2"]
+  },
+  {
+    "name": "成員名稱 6",
+    "role": "職位 / 角色",
+    "blurb": "簡短介紹或成就描述",
+    "image": "/placeholder.png",
+    "skills": ["技能1", "技能2", "技能3"],
+    "works": ["作品1", "作品2"],
+    "links": ["連結1", "連結2"]
+  },
+  {
+    "name": "成員名稱 7",
+    "role": "職位 / 角色",
+    "blurb": "簡短介紹或成就描述",
+    "image": "/placeholder.png",
+    "skills": ["技能1", "技能2", "技能3"],
+    "works": ["作品1", "作品2"],
+    "links": ["連結1", "連結2"]
+  },
+  {
+    "name": "成員名稱 8",
+    "role": "職位 / 角色",
+    "blurb": "簡短介紹或成就描述",
+    "image": "/placeholder.png",
+    "skills": ["技能1", "技能2", "技能3"],
+    "works": ["作品1", "作品2"],
+    "links": ["連結1", "連結2"]
+  }
+]

@@ -1,6 +1,4 @@
-## class website
-班網框架，提供給各班級快速建立專屬網站的範本。
-
+## DLHIT-Website
 ### 技術棧
 - Next.js 13 (App Router)
 - Tailwind CSS
@@ -26,6 +24,3 @@ npm start
 
 ### 部署
 部署至 Cloudflare Page
-
-### 開發人員
-- 主要開發者: twcat0503 

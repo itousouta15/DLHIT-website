@@ -38,26 +38,24 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-white text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
       <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-16 sm:px-8 lg:px-12">
-        <header className="sticky top-0 z-40 mb-8 sm:mb-10 -mx-4 flex flex-wrap items-center gap-2 sm:gap-3 border-b border-white/40 bg-white/85 px-3 sm:px-4 py-2 sm:py-3 backdrop-blur-xl shadow-sm dark:border-slate-800 dark:bg-slate-900/80 sm:mx-0 sm:flex-nowrap sm:justify-between sm:rounded-b-xl">
-          <div className="flex flex-1 flex-wrap items-center gap-4 sm:flex-nowrap">
-            <Link href="/" className="group flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.08em]">
-              <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src="/DLHIT1.webp"
-                  alt="DLHIT Logo"
-                  width={36}
-                  height={36}
-                  unoptimized
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <span className="text-sm sm:text-base font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
-                DLHIT 2th
-              </span>
-            </Link>
+        <header className="sticky top-0 z-40 mb-8 sm:mb-10 -mx-4 flex items-center justify-between border-b border-white/40 bg-white/85 px-3 sm:px-4 py-2 sm:py-3 backdrop-blur-xl shadow-sm dark:border-slate-800 dark:bg-slate-900/80 sm:mx-0 sm:rounded-b-xl">
+          <Link href="/" className="group flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.08em]">
+            <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full overflow-hidden flex-shrink-0">
+              <Image
+                src="/DLHIT-website/DLHIT1.webp"
+                alt="DLHIT Logo"
+                width={36}
+                height={36}
+                unoptimized
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <span className="hidden sm:inline text-sm sm:text-base font-semibold text-slate-900 transition group-hover:text-sky-600 dark:text-slate-50 dark:group-hover:text-sky-300">
+              DLHIT 2th
+            </span>
+          </Link>
           
-          </div>
-          <div className="flex w-full items-center justify-end gap-2 sm:gap-3 md:w-auto md:justify-end">
+          <div className="flex items-center gap-2 sm:gap-3">
             <nav className="hidden items-center gap-1 text-sm font-medium md:flex">
               {navWithState.map((item) => (
                 <Link
@@ -74,29 +72,34 @@ export function SiteShell({ children }: { children: ReactNode }) {
               className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/70 dark:hover:bg-slate-800/80 transition"
               aria-label="Toggle menu"
             >
-              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all ${isMenuOpen ? "opacity-0" : ""}`} />
-              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-slate-900 dark:bg-slate-100 transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
             </button>
           </div>
         </header>
 
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white/95 dark:bg-slate-900/95 border-b border-white/40 dark:border-slate-800 shadow-lg backdrop-blur-xl z-30">
-            <nav className="flex flex-col p-4 gap-2">
-              {navWithState.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`rounded-lg px-4 py-3 transition text-sm font-medium ${item.active ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900" : "text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800/80"}`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+        {/* Mobile Menu Overlay */}
+        <div
+          className={`fixed inset-0 z-20 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          onClick={() => setIsMenuOpen(false)}
+        />
+
+        {/* Mobile Menu Slide */}
+        <nav className={`fixed top-0 left-0 bottom-0 z-30 w-64 bg-white/95 dark:bg-slate-900/95 border-r border-white/40 dark:border-slate-800 shadow-xl backdrop-blur-xl transition-transform duration-300 md:hidden overflow-y-auto ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+          <div className="flex flex-col gap-2 p-4 pt-20">
+            {navWithState.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`rounded-lg px-4 py-3 transition text-base font-medium ${item.active ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-lg" : "text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-800/80"}`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
-        )}
+        </nav>
 
         {!isReady && (
           <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950 text-slate-100">

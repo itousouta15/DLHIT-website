@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "class website",
-  description: "The class website",
+  title: "DLHIT 大里高中資訊校隊",
+  description: "大里高中資訊校隊 官方網站",
 };
 
 export default function RootLayout({

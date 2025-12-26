@@ -33,13 +33,13 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="#projects"
+                href="/DLHIT-website/members"
                 className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:bg-white dark:text-slate-900"
               >
                 成員介紹
               </a>
               <a
-                href="#members"
+                href="/DLHIT-website/about"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-400 hover:text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-50 dark:hover:border-slate-500"
               >
                 認識我們
@@ -49,7 +49,7 @@ export default function Home() {
           <div className="relative flex h-full flex-col items-center justify-center w-full lg:pl-8">
             <div className="relative flex h-40 w-40 sm:h-56 sm:w-56 items-center justify-center rounded-full border border-dashed border-slate-300 bg-white/80 shadow-xl ring-8 ring-sky-200/60 transition hover:-translate-y-1 dark:border-slate-600 dark:bg-slate-900 dark:ring-sky-900/50 mx-auto sm:ml-auto">
               <Image
-                src="/DLHIT2.webp"
+                src="/DLHIT-website/DLHIT2.webp"
                 alt="DLHIT Logo"
                 width={160}
                 height={160}
