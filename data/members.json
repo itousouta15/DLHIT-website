@@ -13,13 +13,17 @@
     ]
   },
   {
-    "name": "成員名稱 2",
+    "name": "吳明熹/西瓜",
     "role": "職位 / 角色",
-    "blurb": "簡短介紹或成就描述",
-    "image": "/placeholder.png",
-    "skills": ["技能1", "技能2", "技能3"],
-    "works": ["作品1", "作品2"],
-    "links": ["連結1", "連結2"]
+    "blurb": "一個只有4+1的可憐高三牲",
+    "image": "https://avatars.githubusercontent.com/u/211208200?s=96&v=4",
+    "skills": ["遊戲", "前端", "競程"],
+    "works": ["Mood Jam", "The Legend of Hero"],
+    "links": [
+      { "text": "GitHub", "url": "https://github.com/watermelen63" },
+      { "text": "IG", "url": "https://www.instagram.com/watermelen0301/?__pwa=1" },
+      { "text": "Discord群組", "url": "https://discord.gg/hPgKZ8RCXt" }
+    ]
   },
   {
     "name": "成員名稱 3",
