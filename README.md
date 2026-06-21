@@ -1,4 +1,6 @@
-## DLHIT-Website
+## DLHIT-Website 
+### 大里高中資訊校隊官網
+![DLHIT](website.webp)
 ### 技術棧
 - Next.js 13 (App Router)
 - Tailwind CSS
