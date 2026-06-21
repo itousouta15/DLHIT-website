@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/DLHIT-website",
+  basePath: "",
   output: "export",
   images: {
     unoptimized: true,

@@ -26,6 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-Hant" suppressHydrationWarning>
+      <head>
+        {/* Inline script: set .dark class synchronously before first paint to prevent FOUC */}
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('dlec-theme');if(t==='dark'||(t==null&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark');}catch(e){}` }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

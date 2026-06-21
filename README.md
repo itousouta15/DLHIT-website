@@ -22,5 +22,3 @@ npm start
 - components/: 站點框架、主題切換、動畫載入
 - public/: 可放置logo與專題圖片
 
-### 部署
-部署至 Cloudflare Page

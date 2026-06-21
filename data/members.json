@@ -24,59 +24,5 @@
       { "text": "IG", "url": "https://www.instagram.com/watermelen0301/?__pwa=1" },
       { "text": "Discord群組", "url": "https://discord.gg/hPgKZ8RCXt" }
     ]
-  },
-  {
-    "name": "成員名稱 3",
-    "role": "職位 / 角色",
-    "blurb": "簡短介紹或成就描述",
-    "image": "/placeholder.png",
-    "skills": ["技能1", "技能2", "技能3"],
-    "works": ["作品1", "作品2"],
-    "links": ["連結1", "連結2"]
-  },
-  {
-    "name": "成員名稱 4",
-    "role": "職位 / 角色",
-    "blurb": "簡短介紹或成就描述",
-    "image": "/placeholder.png",
-    "skills": ["技能1", "技能2", "技能3"],
-    "works": ["作品1", "作品2"],
-    "links": ["連結1", "連結2"]
-  },
-  {
-    "name": "成員名稱 5",
-    "role": "職位 / 角色",
-    "blurb": "簡短介紹或成就描述",
-    "image": "/placeholder.png",
-    "skills": ["技能1", "技能2", "技能3"],
-    "works": ["作品1", "作品2"],
-    "links": ["連結1", "連結2"]
-  },
-  {
-    "name": "成員名稱 6",
-    "role": "職位 / 角色",
-    "blurb": "簡短介紹或成就描述",
-    "image": "/placeholder.png",
-    "skills": ["技能1", "技能2", "技能3"],
-    "works": ["作品1", "作品2"],
-    "links": ["連結1", "連結2"]
-  },
-  {
-    "name": "成員名稱 7",
-    "role": "職位 / 角色",
-    "blurb": "簡短介紹或成就描述",
-    "image": "/placeholder.png",
-    "skills": ["技能1", "技能2", "技能3"],
-    "works": ["作品1", "作品2"],
-    "links": ["連結1", "連結2"]
-  },
-  {
-    "name": "成員名稱 8",
-    "role": "職位 / 角色",
-    "blurb": "簡短介紹或成就描述",
-    "image": "/placeholder.png",
-    "skills": ["技能1", "技能2", "技能3"],
-    "works": ["作品1", "作品2"],
-    "links": ["連結1", "連結2"]
   }
 ]
